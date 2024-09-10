@@ -13,17 +13,29 @@ export const App = () => {
       // flashMode={RNCamera.Constants.FlashMode.torch}
       reactivate={true}
       reactivateTimeout={500}
-      topContent={<Text style={styles.centerText}>{data}</Text>}
+      topContent={
+        <View>
+          <Text style={styles.centerText}>{data}</Text>
+        </View>
+      }
+      showMarker
+      bottomContent={
+        <View>
+          <Text style={styles.centerText}>QR Code Scanner</Text>
+        </View>
+      }
     />
   );
 };
 
 const styles = StyleSheet.create({
   centerText: {
-    flex: 1,
     fontSize: 18,
-    padding: 32,
-    color: '#777',
+    padding: 20,
+    margin: 10,
+    color: 'black',
+    backgroundColor: 'grey',
+    borderRadius: 20,
   },
   textBold: {
     fontWeight: '500',
