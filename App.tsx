@@ -1,7 +1,6 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 
-import {Alert, StyleSheet, Text, View} from 'react-native';
-import {RNCamera} from 'react-native-camera';
+import { StyleSheet, Text, View } from 'react-native';
 import QRCodeScanner from 'react-native-qrcode-scanner';
 
 export const App = () => {
