@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 
-import { StyleSheet, Text, View } from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 import QRCodeScanner from 'react-native-qrcode-scanner';
+import {colors} from './src/config/colors';
 
 export const App = () => {
   const [data, setData] = useState('Scan something');
@@ -12,15 +13,34 @@ export const App = () => {
       // flashMode={RNCamera.Constants.FlashMode.torch}
       reactivate={true}
       reactivateTimeout={500}
+      cameraStyle={styles.cameraStyle}
+      containerStyle={{
+        backgroundColor: 'white',
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}
+      markerStyle={{
+        height: 100,
+        borderColor: colors.primary,
+      }}
       topContent={
-        <View>
+        <View style={styles.container}>
           <Text style={styles.centerText}>{data}</Text>
         </View>
       }
-      showMarker
       bottomContent={
-        <View>
-          <Text style={styles.centerText}>QR Code Scanner</Text>
+        <View style={styles.containerBottom}>
+          <Text
+            style={{
+              textAlign: 'center',
+              padding: 10,
+              fontSize: 16,
+              fontWeight: 'bold',
+              color: 'white',
+              backgroundColor: 'black',
+            }}>
+            Posicionalo bien en el centro
+          </Text>
         </View>
       }
     />
@@ -28,16 +48,28 @@ export const App = () => {
 };
 
 const styles = StyleSheet.create({
-  centerText: {
-    fontSize: 18,
-    padding: 20,
-    margin: 10,
-    color: 'black',
-    backgroundColor: 'grey',
-    borderRadius: 20,
+  container: {
+    width: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop:20
   },
-  textBold: {
-    fontWeight: '500',
-    color: '#000',
+  centerText: {
+    textAlign: 'center',
+    fontSize: 30,
+    padding: 20,
+    marginBottom: 50,
+  },
+  cameraStyle: {
+    width: 320,
+    height: 250,
+    borderRadius: 5,
+    overflow: 'hidden',
+  },
+  containerBottom: {
+    width: '100%',
+    position: 'absolute',
+    bottom: 0,
+    backgroundColor: 'red',
   },
 });
